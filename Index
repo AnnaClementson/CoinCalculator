@@ -11,12 +11,18 @@ namespace MoneyMaker
       Console.WriteLine("Welcome to Money Maker!");
       Console.WriteLine("Enter the amount to convert to coins: ");
       string totalAsString = Console.ReadLine();
+      //convert type from input string to double
       double totalAsDouble = Convert.ToDouble(totalAsString);
+      //print value to verify input
       string sentance = $"{totalAsDouble} cents is equal to...";
       Console.WriteLine(sentance);
-      double goldCoins = Math.Floor(totalAsDouble / valueGold); 
+      //Math.Floor will round down to the nearest number
+      double goldCoins = Math.Floor(totalAsDouble / valueGold);
+      //Modulo operator will give you the remainder of 2 values
       double remainder = totalAsDouble % valueGold; 
+      //Round down to the nearest value for the silver value 
       double silverCoins = Math.Floor(remainder / valueSilver);
+      //Calculate the remainder which will then be the bronze value
       remainder = remainder % valueSilver;
       string finalAmount = $"Gold coins: {goldCoins} \nSilver coins: {silverCoins} \nBronze coins: {remainder}";
       Console.WriteLine(finalAmount); 
